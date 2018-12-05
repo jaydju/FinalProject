@@ -349,6 +349,8 @@ public class ScheduleMain {
         for (int i = 10; i <= 1210; i+= 240 ){
             Line verticalSegment = new Line (i, 10, i, 810);
             verticalSegment.draw();
+            //asldjsdlkfj
+
    }
  }
 }
