@@ -1,0 +1,95 @@
+Teachers College WWW Information System
+Personal Information	Tab Corner Right	Student	Tab Corner Right
+Transparent Image
+Search 
+ 
+RETURN TO MENU | SITE MAP | HELP | EXIT
+Student Detail Schedule:
+ 	
+T00027116 Juan A. Djuwadi
+Autumn Term 2018
+11/24/18 06:42 pm
+Transparent Image
+The classroom is subject to change. Please check the online class schedule on a daily basis for updated assignments particularly during the first two weeks of classes.
+
+Total Credit Hours: 13.000 
+
+Core Mthds Educ Data Mining - HUDK 4050 - 001
+Associated Term:	Autumn Term 2018
+CRN:	31409
+Status:	**Web Registered** on 08/17/18
+Assigned Instructor:	Charles LangE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	5:10 pm - 6:50 pm	TR	Grace Dodge Hall 363	09/05/18 - 12/21/18	Lecture	Charles Lang (P)E-mail
+
+Linear Models & Regression Anl - HUDM 5126 - 001
+Associated Term:	Autumn Term 2018
+CRN:	31526
+Status:	**Web Registered** on 07/29/18
+Assigned Instructor:	Dobrin A. MarchevE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	12:50 pm - 2:50 pm	W	Horace Mann Hall 431	09/05/18 - 12/21/18	Lecture	Dobrin A. Marchev (P)E-mail
+
+Coreseminar:Comm/Computng/Tech - MSTU 4000 - 001
+Associated Term:	Autumn Term 2018
+CRN:	30160
+Status:	**Web Registered** on 06/04/18
+Assigned Instructor:	Yoo Kyung ChangE-mail
+Grade Mode:	Pass/Fail Grading Mode
+Credits:	1.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	09/13/18 - 09/13/18	Seminar	Yoo Kyung Chang (P)E-mail
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	09/27/18 - 09/27/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	10/11/18 - 10/11/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	10/25/18 - 10/25/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	11/08/18 - 11/08/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	11/29/18 - 11/29/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	12/13/18 - 12/13/18	Seminar	TBA
+
+Obj-Oriented Thry/Prgmmng I - MSTU 4031 - 002
+Associated Term:	Autumn Term 2018
+CRN:	31684
+Status:	**Web Registered** on 06/04/18
+Assigned Instructor:	Nigel FrazierE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	7:00 pm - 9:10 pm	T	Horace Mann Hall 150	09/05/18 - 12/21/18	Lecture	Nigel Frazier (P)E-mail
+Class	7:20 pm - 8:20 pm	W	Horace Mann Hall 150	09/05/18 - 12/21/18	Lecture	TBA
+
+Video Games and Education - MSTU 4039 - 001
+Associated Term:	Autumn Term 2018
+CRN:	30820
+Status:	**Web Registered** on 06/18/18
+Assigned Instructor:	Joey LeeE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	3:10 pm - 4:50 pm	M	Horace Mann Hall 438	09/05/18 - 12/21/18	Lecture	Joey Lee (P)E-mail
+
+Return to Previous
+Transparent Image
+[ Select Term | Add/Drop Classes | Change Class Options | View Fee Assessment | Look up Classes to Add ]
+
+RELEASE: 8.3.0.3
+
+© 2018 Ellucian Company L.P. and its affiliates.

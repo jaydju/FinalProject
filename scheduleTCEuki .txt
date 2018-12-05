@@ -1,0 +1,76 @@
+Teachers College WWW Information System
+Personal Information	Tab Corner Right	Student	Tab Corner Right	Financial Aid	Tab Corner Right
+Transparent Image
+Search 
+ 
+RETURN TO MENU | SITE MAP | HELP | EXIT
+Student Detail Schedule:
+ 	
+T00020770 Euki N. Sawada
+Autumn Term 2018
+11/27/18 06:09 pm
+Transparent Image
+The classroom is subject to change. Please check the online class schedule on a daily basis for updated assignments particularly during the first two weeks of classes.
+
+Total Credit Hours: 9.000 
+
+Core Mthds Educ Data Mining - HUDK 4050 - 001
+Associated Term:	Autumn Term 2018
+CRN:	31409
+Status:	**Web Registered** on 09/04/18
+Assigned Instructor:	Charles LangE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	5:10 pm - 6:50 pm	TR	Grace Dodge Hall 363	09/05/18 - 12/21/18	Lecture	Charles Lang (P)E-mail
+
+Cognitive Development - HUDK 5023 - 003
+Associated Term:	Autumn Term 2018
+CRN:	31681
+Status:	**Web Registered** on 09/06/18
+Assigned Instructor:	Valerie KhaitE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	TBA	 	TBA	date09/05/18 - 12/21/18	Lecture	Valerie Khait (P)E-mail
+
+Statistics Lab - HUDM 5000 - 002
+Associated Term:	Autumn Term 2018
+CRN:	31762
+Status:	**Web Registered** on 09/11/18
+Assigned Instructor:	Thanos PatelisE-mail
+Grade Mode:	Pass/Fail Grading Mode
+Credits:	0.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	1:00 pm - 2:40 pm	W	Grace Dodge Hall 457	09/05/18 - 10/17/18	Laboratory	Thanos Patelis (P)E-mail
+Class	1:00 pm - 2:40 pm	W	Arthur Zankel Building 418	10/24/18 - 12/21/18	Laboratory	TBA
+
+Applied Regression Analysis - HUDM 5122 - 002
+Associated Term:	Autumn Term 2018
+CRN:	31625
+Status:	**Web Registered** on 09/06/18
+Assigned Instructor:	Thanos PatelisE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	5:10 pm - 7:50 pm	M	Thompson Hall 422	09/05/18 - 12/21/18	Lecture	Thanos Patelis (P)E-mail
+
+Return to Previous
+Transparent Image
+[ Select Term | Add/Drop Classes | Change Class Options | View Fee Assessment | Look up Classes to Add ]
+
+RELEASE: 8.3.0.3
+
+© 2018 Ellucian Company L.P. and its affiliates.
