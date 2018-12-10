@@ -1,0 +1,74 @@
+The classroom is subject to change. Please check the online class schedule on a daily basis for updated assignments particularly during the first two weeks of classes.
+Total Credit Hours: 13.000 
+
+Psychology of Media - HUDK 5035 - 001
+Associated Term:	Autumn Term 2018
+CRN:	32037
+Status:	**Web Registered** on 09/12/18
+Assigned Instructor:	Jamie L. Krenn 
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	TBA	 	TBA	09/05/18 - 12/21/18	Distance Learning	Jamie L. Krenn (P) 
+
+Coreseminar:Comm/Computng/Tech - MSTU 4000 - 001
+Associated Term:	Autumn Term 2018
+CRN:	30160
+Status:	**Web Registered** on 08/10/18
+Assigned Instructor:	Yoo Kyung Chang 
+Grade Mode:	Pass/Fail Grading Mode
+Credits:	1.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	09/13/18 - 09/13/18	Seminar	Yoo Kyung Chang (P) 
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	09/27/18 - 09/27/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	10/11/18 - 10/11/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	10/25/18 - 10/25/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	11/08/18 - 11/08/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	11/29/18 - 11/29/18	Seminar	TBA
+Class	7:10 pm - 9:00 pm	R	Thompson Hall 136	12/13/18 - 12/13/18	Seminar	TBA
+
+Obj-Oriented Thry/Prgmmng I - MSTU 4031 - 002
+Associated Term:	Autumn Term 2018
+CRN:	31684
+Status:	**Web Registered** on 09/05/18
+Assigned Instructor:	Nigel Frazier 
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	7:00 pm - 9:10 pm	T	Horace Mann Hall 150	09/05/18 - 12/21/18	Lecture	Nigel Frazier (P) 
+Class	7:20 pm - 8:20 pm	W	Horace Mann Hall 150	09/05/18 - 12/21/18	Lecture	TBA
+
+Mobile Learning - MSTU 4040 - 001
+Associated Term:	Autumn Term 2018
+CRN:	31682
+Status:	**Web Registered** on 09/12/18
+Assigned Instructor:	Joey Lee 
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	3:10 pm - 4:50 pm	T	Grace Dodge Hall 281	09/05/18 - 12/21/18	Lecture	Joey Lee (P) 
+
+Culture, Media, & Education - MSTU 5002 - 001
+Associated Term:	Autumn Term 2018
+CRN:	30856
+Status:	**Web Registered** on 09/14/18
+Assigned Instructor:	Lalitha M. Vasudevan 
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	3:00 pm - 5:00 pm	M	Grace Dodge Hall 277	09/05/18 - 12/21/18	Lecture	Lalitha M Vasudevan (P) 
