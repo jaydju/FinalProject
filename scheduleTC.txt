@@ -8,7 +8,7 @@ Student Detail Schedule:
  	
 T00027116 Juan A. Djuwadi
 Autumn Term 2018
-11/24/18 06:42 pm
+12/10/18 12:41 am
 Transparent Image
 The classroom is subject to change. Please check the online class schedule on a daily basis for updated assignments particularly during the first two weeks of classes.
 
@@ -90,6 +90,6 @@ Return to Previous
 Transparent Image
 [ Select Term | Add/Drop Classes | Change Class Options | View Fee Assessment | Look up Classes to Add ]
 
-RELEASE: 8.3.0.3
+RELEASE: 8.7.1
 
 © 2018 Ellucian Company L.P. and its affiliates.
