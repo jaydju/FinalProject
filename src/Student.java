@@ -2,19 +2,20 @@ import java.util.ArrayList;
 
 public class Student {
     private String name;
-    private ArrayList<Classes> classes;
+    private String classTerm;
+    private ArrayList<Classes> classes = new ArrayList<>();
 
-    public String getName() {
-        return name;
+    public void addClass(Classes y){
+        classes.add(y);
     }
 
-    public int getClassSize() {
-        return classes.size();
+    public ArrayList<Classes> getClasses(){
+        return classes;
     }
-//
-//    public Classes getClassList() {
-//        for (int i = 0; i < classes.size(); i++) {
-//            return classes.get(i);
-//        }
-//    }
+
+    public void setClassTerm(String classTerm){
+        this.classTerm = classTerm;
+    }
+
+
 }

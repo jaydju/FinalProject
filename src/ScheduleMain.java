@@ -10,9 +10,11 @@ public class ScheduleMain {
     public static void main(String[] args) throws java.io.FileNotFoundException {
         String fileName = "scheduleTC.txt";
         Scanner in = new Scanner(new FileReader(fileName));
+        Student s1 = new Student();
 
         //Method to Find Class Term
-        System.out.println(Classes.findTerm(in));
+        String classTerm = Classes.findTerm(in);
+        s1.setClassTerm(classTerm);
         System.out.println(Classes.findNumberOfClasses(in));
 
         //Method to Find All Class Names
@@ -118,22 +120,146 @@ public class ScheduleMain {
         System.out.println(classDetailFirst.get(3));
         System.out.println(classDetailSecond.get(3));
 
-        //Drawing Here
+        //Drawing Here Potentially
+        //We iterate through the Array Containing the Lines of Class Details for the FIRST ARRAY
         for (int i = 0; i < classDetailFirst.size(); i++){
+            //We create another Array List to Save the Tokens
             ArrayList<String> classDetailTokens1 = new ArrayList<>();
             String firstClassDetail = classDetailFirst.get(i);
             String[] words = firstClassDetail.split("\\s+");
+            //We Add the Tokenized Details of Each Class Detail Line into the Token Array list
             for (String word: words){
                 classDetailTokens1.add(word);
             }
+            //The Days Information is Always Going to Have an Index Position of 6 Assuming the Schedule Information is Complete
             String days = classDetailTokens1.get(6);
             String time = classDetailTokens1.get(1) + classDetailTokens1.get(2) + classDetailTokens1.get(3) + classDetailTokens1.get(4) + classDetailTokens1.get(5);
             Classes c1 = new Classes();
             c1.setClassName(allClassNames.get(i));
             c1.setClassDays(days);
             c1.setClassTime(time);
+
+            //Need to Add Class Location Here
+            String location = "";
+            location = classDetailTokens1.get(7);
+            for (int j = 8; j < classDetailTokens1.size(); j++){
+                //We check to see if the Token refers to the Date which is identified by "/"
+                if (classDetailTokens1.get(j).contains("/")){
+                    break;
+                }
+                else {
+                    location += " " + classDetailTokens1.get(j);
+                }
+
+
+            }
+            c1.setClassLoc(location);
+            System.out.println(location);
+
+
+            //Class Professor
+            System.out.println(Arrays.toString(classDetailTokens1.toArray()));
+            for (int j = 0; j < classDetailTokens1.size(); j++){
+                String token = classDetailTokens1.get(j);
+                //We check if the Tokens equals Lecture/Seminar/Laboratory etc; we know the Token After This is the Start of the Prof Name
+                if (token.equals("Lecture") || token.equals("Seminar") || token.equals("Laboratory")){
+                    String professorName = "";
+                    for(int h = j + 1; h < classDetailTokens1.size(); h++ ){
+                        if (classDetailTokens1.get(h).equals(("(P)E-mail")) || classDetailTokens1.get(h).equals("E-mail")){
+                            break;
+                        }
+                        else {
+                            professorName = professorName + " " + classDetailTokens1.get(h);
+                        }
+                        }
+                    professorName = professorName.substring(1);
+                    System.out.println(professorName);
+                    c1.setClassProf(professorName);
+                    }
+
+                    }
+
+
+
             System.out.println(days);
             System.out.println(time);
+            s1.addClass(c1);
+        }
+
+        //We iterate through the Array Containing the Lines of Class Details for the SECOND ARRAY
+        System.out.println(classDetailSecond);
+        for (int i = 0; i < classDetailSecond.size(); i++){
+            //We create another Array List to Save the Tokens
+            ArrayList<String> classDetailTokens2 = new ArrayList<>();
+            String secondClassDetail = classDetailSecond.get(i);
+            if (!(secondClassDetail.equals(" ") || secondClassDetail.equals(""))){
+                String validClassDetails = classDetailSecond.get(i);
+                String[] words = validClassDetails.split("\\s+");
+                for (String word: words){
+                    classDetailTokens2.add(word);
+                }
+                //The Days Information is Always Going to Have an Index Position of 6 Assuming the Schedule Information is Complete
+                String days = classDetailTokens2.get(6);
+                String time = classDetailTokens2.get(1) + classDetailTokens2.get(2) + classDetailTokens2.get(3) + classDetailTokens2.get(4) + classDetailTokens2.get(5);
+                Classes c1 = new Classes();
+                c1.setClassName(allClassNames.get(i));
+                c1.setClassDays(days);
+                c1.setClassTime(time);
+
+                //Need to Add Class Location Here
+                String location = "";
+                location = classDetailTokens2.get(7);
+                for (int j = 8; j < classDetailTokens2.size(); j++){
+                    //We check to see if the Token refers to the Date which is identified by "/"
+                    if (classDetailTokens2.get(j).contains("/")){
+                        break;
+                    }
+                    else {
+                        location += " " + classDetailTokens2.get(j);
+                    }
+
+
+                }
+                c1.setClassLoc(location);
+                System.out.println(location);
+
+
+                //Class Professor
+                System.out.println(Arrays.toString(classDetailTokens2.toArray()));
+                for (int j = 0; j < classDetailTokens2.size(); j++){
+                    String token = classDetailTokens2.get(j);
+                    //We check if the Tokens equals Lecture/Seminar/Laboratory etc; we know the Token After This is the Start of the Prof Name
+                    if (token.equals("Lecture") || token.equals("Seminar") || token.equals("Laboratory")){
+                        String professorName = "";
+                        for(int h = j + 1; h < classDetailTokens2.size(); h++ ){
+                            if (classDetailTokens2.get(h).equals(("(P)E-mail")) || classDetailTokens2.get(h).equals("E-mail")){
+                                break;
+                            }
+                            else {
+                                professorName = professorName + " " + classDetailTokens2.get(h);
+                            }
+                        }
+                        professorName = professorName.substring(1);
+                        System.out.println(professorName);
+                        c1.setClassProf(professorName);
+                    }
+
+                }
+
+
+
+                System.out.println(days);
+                System.out.println(time);
+                s1.addClass(c1);
+            }
+            }
+
+
+
+        //Iterating through the Students Classes:
+        for (int i = 0; i < s1.getClasses().size(); i++){
+            Classes c1 = s1.getClasses().get(i);
+            System.out.println(c1.getClassName());
         }
 
         System.out.println(Arrays.toString(allClassNames.toArray()));
@@ -142,18 +268,18 @@ public class ScheduleMain {
         //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
         Line segment = new Line(10, 10, 1210, 10);
         segment.draw();
-        Line verticalLeft = new Line(10, 10, 10, 810);
+        Line verticalLeft = new Line(10, 10, 10, 850);
         verticalLeft.draw();
         Line horizontalBot = new Line(10, 810, 1210, 810);
         horizontalBot.draw();
-        Line verticalRight = new Line(1210, 810, 1210, 10);
+        Line verticalRight = new Line(1210, 850, 1210, 10);
         verticalRight.draw();
-        Line header = new Line(10, 100, 1210, 100);
-        header.draw();
-        Line subHeader = new Line(10, 150, 1210, 150);
-        subHeader.draw();
+//        Line header = new Line(10, 100, 1210, 100);
+//        header.draw();
+//        Line subHeader = new Line(10, 150, 1210, 150);
+//        subHeader.draw();
 
-        for(int i = 150; i <= 870; i += 20){
+        for(int i = 110; i <= 850; i += 20){
             Line segmented = new Line(10, i,1210, i );
             segmented.draw();
         }
