@@ -5,11 +5,15 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+//Integers are faster to traverse
 //The program breaks down if you paste it from TC to a word doc first then to a text file. Word Doc processes it with some binary formatting.
 public class ScheduleMain {
     public static void main(String[] args) throws java.io.FileNotFoundException {
+        //We Initialize the File Name, remember to ask for user input and print line by line to a text file.
         String fileName = "scheduleTC.txt";
         Scanner in = new Scanner(new FileReader(fileName));
+
+        //Initialize the student class which holds an array of list of Classes and their Information
         Student s1 = new Student();
 
         //Method to Find Class Term
@@ -120,7 +124,6 @@ public class ScheduleMain {
         System.out.println(classDetailFirst.get(3));
         System.out.println(classDetailSecond.get(3));
 
-        //Drawing Here Potentially
         //We iterate through the Array Containing the Lines of Class Details for the FIRST ARRAY
         for (int i = 0; i < classDetailFirst.size(); i++){
             //We create another Array List to Save the Tokens
@@ -139,7 +142,7 @@ public class ScheduleMain {
             c1.setClassDays(days);
             c1.setClassTime(time);
 
-            //Need to Add Class Location Here
+            //Class Location
             String location = "";
             location = classDetailTokens1.get(7);
             for (int j = 8; j < classDetailTokens1.size(); j++){
@@ -223,7 +226,6 @@ public class ScheduleMain {
                 c1.setClassLoc(location);
                 System.out.println(location);
 
-
                 //Class Professor
                 System.out.println(Arrays.toString(classDetailTokens2.toArray()));
                 for (int j = 0; j < classDetailTokens2.size(); j++){
@@ -243,9 +245,7 @@ public class ScheduleMain {
                         System.out.println(professorName);
                         c1.setClassProf(professorName);
                     }
-
                 }
-
 
 
                 System.out.println(days);
@@ -255,40 +255,167 @@ public class ScheduleMain {
             }
 
 
+        System.out.println("THIS IS A LIMITER");
 
         //Iterating through the Students Classes:
-        for (int i = 0; i < s1.getClasses().size(); i++){
+        int boxX = 0;
+        int boxY = 0;
+        int boxHeight = 0;
+        for (int i = 0; i < s1.getClasses().size(); i++) {
             Classes c1 = s1.getClasses().get(i);
+            int classSize = c1.getClassDays().length();
+
+            for (int j = 0; j < classSize; j++){
+                String firstClassDay = c1.getClassDays().substring(j,j+1);
+                System.out.println(firstClassDay);
+                if (firstClassDay.equals("M")){
+                    boxX = 80;
+                }
+                else if (firstClassDay.equals("T")){
+                    boxX = 320;
+                }
+                else if (firstClassDay.equals("W")){
+                    boxX = 560;
+                }
+                else if (firstClassDay.equals("R")){
+                    boxX = 800;
+                }
+                else {
+                    boxX = 0;
+                    System.out.println("Can't find class day");
+                }
+
+                //Excess String Traversals
+
+                ArrayList<String> tokenTime = new ArrayList<>();
+                String[] classTime = c1.getClassTime().split("[\\s-:]+");
+                for (String words: classTime){
+                    tokenTime.add(words);
+                }
+                int firstTime = Integer.parseInt(tokenTime.get(0));
+                String secondDetail = tokenTime.get(1);
+                if (secondDetail.toLowerCase().contains("pm")){
+                    firstTime += 12;
+                }
+//                boxY = firstTime; //Algorithm To Relate the Coordinates to the Time
+                //Consider Switch Cases:
+                if (firstTime == 9){boxY = 90;}
+                else if (firstTime == 10){boxY = 150;} else if (firstTime == 11){boxY = 210;} else if (firstTime == 12){boxY = 270;}
+                else if (firstTime == 13){boxY = 330;} else if (firstTime == 14){boxY = 390;} else if (firstTime == 15){boxY = 450;}
+                else if (firstTime == 16){boxY = 510;} else if (firstTime == 17){boxY = 570;} else if (firstTime == 18){boxY = 630;}
+                else if (firstTime == 19){boxY = 690;} else if (firstTime == 20){boxY = 750;} else {boxY = 810;}
+
+                //difference between hour is 60 units
+                int minutes = Integer.parseInt(secondDetail.substring(0, secondDetail.length() - 2));
+                boxY += minutes;
+
+                //Find Height here to determine size of the box
+                int secondTime = Integer.parseInt(tokenTime.get(2));
+                String fourthDetail = tokenTime.get(3);
+                if (fourthDetail.toLowerCase().contains("pm")){
+                    secondTime += 12;
+                }
+
+                if (secondTime == 9){boxHeight = 90;}
+                else if (secondTime == 10){boxHeight = 150;} else if (secondTime == 11){boxHeight = 210;} else if (secondTime == 12){boxHeight = 270;}
+                else if (secondTime == 13){boxHeight = 330;} else if (secondTime == 14){boxHeight = 390;} else if (secondTime == 15){boxHeight = 450;}
+                else if (secondTime == 16){boxHeight = 510;} else if (secondTime == 17){boxHeight = 570;} else if (secondTime == 18){boxHeight = 630;}
+                else if (secondTime == 19){boxHeight = 690;} else if (secondTime == 20){boxHeight = 750;} else {boxHeight = 810;}
+
+                //Add Second Minutes
+                int minutes2 = Integer.parseInt(fourthDetail.substring(0, fourthDetail.length() - 2));
+                boxHeight += minutes2;
+
+                boxHeight = boxHeight - boxY;
+
+
+                System.out.println(firstTime);
+                System.out.println(Arrays.toString(tokenTime.toArray()));
+
+                //Need to adjust the positive Y here.
+                //THe length of each vertical segment is 840 long we need to parse by time between 9am - 920pm.
+
+            }
             System.out.println(c1.getClassName());
+            System.out.println(c1.getClassProf());
+            System.out.println(c1.getClassTime());
+
+            Rectangle classBox = new Rectangle(boxX, boxY, 240, boxHeight);
+            classBox.draw();
+            classBox.setColor(Color.BLUE);
+            classBox.fill();
         }
 
-        System.out.println(Arrays.toString(allClassNames.toArray()));
+
+        //Create Static Method (in Classes) to convert
+        //Convert time to width and height
 
 
-        //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
-        Line segment = new Line(10, 10, 1210, 10);
-        segment.draw();
+//        //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
+        Line horizontalTop = new Line(10, 10, 1280, 10);
+        horizontalTop.draw();
         Line verticalLeft = new Line(10, 10, 10, 850);
         verticalLeft.draw();
-        Line horizontalBot = new Line(10, 810, 1210, 810);
+        Line horizontalBot = new Line(10, 810, 1280, 810);
         horizontalBot.draw();
-        Line verticalRight = new Line(1210, 850, 1210, 10);
+        Line verticalRight = new Line(1280, 850, 1280, 10);
         verticalRight.draw();
+        Line verticalTime = new Line (80, 10, 80, 850);
+        verticalTime.draw();
 //        Line header = new Line(10, 100, 1210, 100);
 //        header.draw();
 //        Line subHeader = new Line(10, 150, 1210, 150);
 //        subHeader.draw();
 
-        for(int i = 110; i <= 850; i += 20){
-            Line segmented = new Line(10, i,1210, i );
+        int hour = 9;
+        int minute = 0;
+        String meridian = "AM";
+        for(int i = 90; i <= 850; i += 20){
+            Line segmented = new Line(10, i,1280, i );
             segmented.draw();
+            String displayTime = hour + ":" + minute + "0 " + meridian;
+            Text time = new Text(15, i, displayTime);
+            if (i < 850){
+                time.draw();
+            }
+            else{
+                continue;
+            }
+            time.draw();
+            minute += 2;
+            if (minute >= 6){
+                minute = 0;
+                hour++;
+            }
+            if (hour > 12)
+            {
+                hour = hour - 12;
+                meridian = "PM";
+            }
         }
 
-        for (int i = 10; i <= 1210; i+= 240 ){
-            Line verticalSegment = new Line (i, 10, i, 810);
+        //Days of the Week Drawing
+        ArrayList<String> daysOfWeek = new ArrayList<>();
+        daysOfWeek.add("Monday");
+        daysOfWeek.add("Tuesday");
+        daysOfWeek.add("Wednesday");
+        daysOfWeek.add("Thursday");
+        daysOfWeek.add("Friday");
+
+        int indexOfDay = 0;
+        for (int i = 80; i <= 1280; i+= 240 ){
+            Line verticalSegment = new Line (i, 10, i, 850);
             verticalSegment.draw();
 
-   }
+            if (i < 1280) {
+                String curDay = daysOfWeek.get(indexOfDay);
+                Text days = new Text(i + 95, 40, curDay);
+                days.draw();
+                days.grow(35, 15);
+                indexOfDay++;
+            }
+        }
+
 
 
 

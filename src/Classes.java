@@ -66,10 +66,6 @@ public class Classes {
         this.classDays = classDays;
     }
 
-    @Override
-    public String toString() {
-        return "His class is ";
-    }
 
     //Static Method to Find the Term of the Class
     public static String findTerm(Scanner y) {
