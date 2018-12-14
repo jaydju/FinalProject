@@ -147,6 +147,117 @@ public class Classes {
             return count;
         }
 
+        public static void fincClassDetails(Scanner y, ArrayList<String> one, ArrayList<String> two){
+
+            while (y.hasNextLine()) {
+                String line = y.next();
+                if (line.equals("Type")) {
+                    y.nextLine();
+                    String firstDetails = y.nextLine();
+                    one.add(firstDetails);
+                    String secondDetails = y.nextLine();
+                    two.add(secondDetails);
+                }
+            }
+
+        }
+
+        public static void removeInstanceTBA(ArrayList<String> incompleteClasses, ArrayList<String> firstLine, ArrayList<String> secondLine, ArrayList<String> classNames){
+            for (int j = 0; j < firstLine.size(); j++) {
+                String thisClassDetail = firstLine.get(j);
+                if (thisClassDetail.toLowerCase().contains("TBA".toLowerCase())) {
+                    incompleteClasses.add(classNames.get(j) + firstLine.get(j));
+                    firstLine.remove(j);
+                    secondLine.remove(j);
+                    classNames.remove(j);
+                }
+            }
+        }
+
+        public static void seminarAndLaboratoryHandler(ArrayList<String> varyingClassDetails, ArrayList<String> firstLine, ArrayList<String> secondLine, ArrayList<String> classNames){
+            for (int j = 0; j < firstLine.size(); j++) {
+                ArrayList<String> seminarTokens1 = new ArrayList<>();
+                ArrayList<String> seminarTokens2 = new ArrayList<>();
+                String thisClassDetail = firstLine.get(j);
+                if (thisClassDetail.toLowerCase().contains("Seminar".toLowerCase()) || thisClassDetail.toLowerCase().contains("Laboratory".toLowerCase())) {
+                    String[] words = thisClassDetail.split("\\s+");
+                    for (String word : words) {
+                        seminarTokens1.add(word);
+                    }
+                    String[] words2 = secondLine.get(j).split("\\s+");
+                    for (String word : words2) {
+                        seminarTokens2.add(word);
+                    }
+                    //********** NEED TO RECODE THIS TO MORE GENERAL/ROBUST CASE. IF THE DAYS ARE THE SAME AND THE TIME OVERLAPS, THEN REMOVE IT.
+                    String day1 = seminarTokens1.get(6);
+                    String day2 = seminarTokens2.get(6);
+                    String time1 = seminarTokens1.get(1) + seminarTokens1.get(2) + seminarTokens1.get(3) + seminarTokens1.get(4) + seminarTokens1.get(5);
+                    String time2 = seminarTokens2.get(1) + seminarTokens2.get(2) + seminarTokens2.get(3) + seminarTokens2.get(4) + seminarTokens2.get(5);
+                    if (time1.equals(time2) || day1.equals(day2)) {
+                        varyingClassDetails.add(classNames.get(j) + secondLine.get(j));
+                        secondLine.set(j, " ");
+                    }
+                }
+            }
+        }
+
+        public static void setFirstLineClassData(ArrayList<String> firstLine, Student s1){
+            for (int i = 0; i < firstLine.size(); i++) {
+                //We create another Array List to Save the Tokens
+                ArrayList<String> classDetailTokens1 = new ArrayList<>();
+                String firstClassDetail = firstLine.get(i);
+                String[] words = firstClassDetail.split("\\s+");
+                //We Add the Tokenized Details of Each Class Detail Line into the Token Array list
+                for (String word : words) {
+                    classDetailTokens1.add(word);
+                }
+                //The Days Information is Always Going to Have an Index Position of 6 Assuming the Schedule Information is Complete
+                String days = classDetailTokens1.get(6);
+                String time = classDetailTokens1.get(1) + classDetailTokens1.get(2) + classDetailTokens1.get(3) + classDetailTokens1.get(4) + classDetailTokens1.get(5);
+                Classes c1 = new Classes();
+                c1.setClassName(firstLine.get(i));
+                c1.setClassDays(days);
+                c1.setClassTime(time);
+
+                //Class Location
+                String location = "";
+                location = classDetailTokens1.get(7);
+                for (int j = 8; j < classDetailTokens1.size(); j++) {
+                    //We check to see if the Token refers to the Date which is identified by "/"
+                    if (classDetailTokens1.get(j).contains("/")) {
+                        break;
+                    } else {
+                        location += " " + classDetailTokens1.get(j);
+                    }
+
+
+                }
+                c1.setClassLoc(location);
+
+
+                //Class Professor
+                for (int j = 0; j < classDetailTokens1.size(); j++) {
+                    String token = classDetailTokens1.get(j);
+                    //We check if the Tokens equals Lecture/Seminar/Laboratory etc; we know the Token After This is the Start of the Prof Name
+                    if (token.equals("Lecture") || token.equals("Seminar") || token.equals("Laboratory")) {
+                        String professorName = "";
+                        for (int h = j + 1; h < classDetailTokens1.size(); h++) {
+                            if (classDetailTokens1.get(h).equals(("(P)E-mail")) || classDetailTokens1.get(h).equals("E-mail")) {
+                                break;
+                            } else {
+                                professorName = professorName + " " + classDetailTokens1.get(h);
+                            }
+                        }
+                        professorName = professorName.substring(1);
+                        c1.setClassProf(professorName);
+                    }
+
+                }
+
+                s1.addClass(c1);
+            }
+        }
+
 
     }
 
