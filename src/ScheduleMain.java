@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.Scanner;
 import java.io.BufferedInputStream;
 import java.io.FileReader;
@@ -9,11 +10,52 @@ import java.util.Arrays;
 //Integers are faster to traverse
 //The program breaks down if you paste it from TC to a word doc first then to a text file. Word Doc processes it with some binary formatting.
 public class ScheduleMain {
+    private JFrame f;
+    private JPanel p;
+    private JButton b1;
+    private JLabel lab;
+
+    public ScheduleMain()
+    {
+        gui();
+    }
+
+    public void gui()
+    {
+        f = new JFrame("Creativity tuts");
+        f.setVisible(true);
+        f.setSize(600, 400);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        p = new JPanel();
+
+        b1 = new JButton("Test");
+        lab = new JLabel("This is test label");
+
+        p.add(b1);
+        p.add(lab);
+
+        f.add(p);
+        f.add(p, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
+
+    }
+
     public static void main(String[] args) throws java.io.FileNotFoundException {
-        Window win1 = new Window();
-        win1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        win1.setSize(350, 100);
-        win1.setVisible(true);
+
+//        new ScheduleMain();
+        JFrame f = new JFrame();
+        f.setVisible(true);
+        f.setSize(600, 400);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+//        JPanel p = new JPanel();
+//        JButton b1 = new JButton("Button 1");
+//        JButton b2 = new JButton("Button 2");
+
+//        Window win1 = new Window();
+//        win1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        win1.setSize(350, 100);
+//        win1.setVisible(true);
         //This part is for more than one schedules for part2
 //        ArrayList<String> studentSchedule = new ArrayList<>();
 //        studentSchedule.add("scheduleTC.txt");
@@ -23,7 +65,7 @@ public class ScheduleMain {
 
             try { //This try catches non .txt file formats
                 //We Initialize the File Name, remember to ask for user input and print line by line to a text file.
-                String fileName = "scheduleTC.txt";
+                String fileName = "scheduleTCPeiyu.txt";
                 Scanner in = new Scanner(new FileReader(fileName));
 
                 //Initialize the student class which holds an array of list of Classes and their Information
@@ -437,7 +479,12 @@ public class ScheduleMain {
 
 
                 }
+                //Printing out Incomplete Class Details
+                Text missingMessage = new Text(1300, 40, "Missing Information: Could't Process Following");
+                missingMessage.draw();
+
                 System.out.println(Arrays.toString(incompleteClass.toArray()));
+                System.out.println(Arrays.toString(varyingClassDetails.toArray()));
             } catch (Exception e) {
                 System.out.println("Please copy directly to .txt file format");
 
