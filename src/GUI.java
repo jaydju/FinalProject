@@ -7,6 +7,8 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import javax.imageio.ImageIO;
+import java.io.File;
 
 public class GUI {
     private JFrame f;
@@ -33,6 +35,12 @@ public class GUI {
 
         f.add(p);
         f.add(p, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
+        f.add(new JLabel(new ImageIcon("TCColumbiaLogo.png")));
+        try {
+            f.setIconImage(ImageIO.read(new File("TCColumbiaLogo.png")));
+        } catch(Exception z){
+            System.out.println("Trouble reading file");
+        }
 
         tf = new JTextArea();
         tf.setPreferredSize(new Dimension(300, 200));
@@ -55,6 +63,7 @@ public class GUI {
                 }
             }
         });
+
     }
 
     private void parseInfo()
