@@ -18,10 +18,11 @@ public class GUI {
     private JTextArea tf;
 
     private static final String FileName = "schedule.txt";
+    private static final String FileName2 = "schedule2.txt";
 
     public void show()
     {
-        f = new JFrame("myTC SChedule Visualizer");
+        f = new JFrame("myTC Schedule Visualizer");
         f.setVisible(true);
         f.setSize(600, 400);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -485,7 +486,6 @@ public class GUI {
             }
             //Printing out Incomplete Class Details
             Text missingMessage = new Text(1300, 40, "Missing Information: Could't Process Following");
-            missingMessage.draw();
 
             System.out.println(Arrays.toString(incompleteClass.toArray()));
             System.out.println(Arrays.toString(varyingClassDetails.toArray()));

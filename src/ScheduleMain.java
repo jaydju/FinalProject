@@ -16,14 +16,6 @@ public class ScheduleMain {
         GUI gui = new GUI();
         gui.show();
 
-//        JPanel p = new JPanel();
-//        JButton b1 = new JButton("Button 1");
-//        JButton b2 = new JButton("Button 2");
-
-//        Window win1 = new Window();
-//        win1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        win1.setSize(350, 100);
-//        win1.setVisible(true);
         //This part is for more than one schedules for part2
 //        ArrayList<String> studentSchedule = new ArrayList<>();
 //        studentSchedule.add("scheduleTC.txt");
