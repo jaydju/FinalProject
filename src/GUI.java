@@ -16,37 +16,40 @@ public class GUI {
     private JButton b1;
     private JLabel lab;
     private JTextArea tf;
+    private JScrollPane sp;
 
     private static final String FileName = "schedule.txt";
     private static final String FileName2 = "schedule2.txt";
 
     public void show()
     {
-        f = new JFrame("myTC Schedule Visualizer");
-        f.setVisible(true);
-        f.setSize(600, 400);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        try{
+        f = new JFrame("A Better Way to Visualize your Schedule and Availabilities");
+        f.setSize(600, 420);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Lets the USER close the JFrame
+
 
         p = new JPanel();
-        //p.setPreferredSize(new Dimension(200, 400));
+//        p.setPreferredSize(new Dimension(600, 400));
 
         b1 = new JButton("Run");
 
         p.add(b1);
-
-        f.add(p);
+        f.add(p); //The JFrame adds te JPanel which contains the UI components
         f.add(p, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
-        f.add(new JLabel(new ImageIcon("TCColumbiaLogo.png")));
+        f.add(new JLabel(new ImageIcon("04.png"))); //Changes the Icon of the Program
         try {
             f.setIconImage(ImageIO.read(new File("TCColumbiaLogo.png")));
         } catch(Exception z){
-            System.out.println("Trouble reading file");
+            System.out.println("Trouble Reading Image File");
         }
 
         tf = new JTextArea();
         tf.setPreferredSize(new Dimension(300, 200));
 
         p.add(tf);
+
+//        sp = new JScrollPane(tf); //JTextArea is placed in a JScrollPane
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -64,7 +67,12 @@ public class GUI {
                 }
             }
         });
+        f.setVisible(true); //We set visible at the very END when all the components are drawn in place.
+        f.setResizable(false);
 
+    } catch (Exception e){
+            System.out.println("Unsupported text");
+        }
     }
 
     private void parseInfo()
@@ -487,8 +495,14 @@ public class GUI {
             //Printing out Incomplete Class Details
             Text missingMessage = new Text(1300, 40, "Missing Information: Could't Process Following");
 
-            System.out.println(Arrays.toString(incompleteClass.toArray()));
-            System.out.println(Arrays.toString(varyingClassDetails.toArray()));
+            if(incompleteClass.size() > 0) {
+                System.out.println("Missing Information: Couldn't Process Following: ");
+                System.out.println(Arrays.toString(incompleteClass.toArray()));
+            }
+            if(varyingClassDetails.size() > 0) {
+                System.out.println("Repeated Information and Redundant Visualization: Possible Instance of Seminar/Laboratory");
+                System.out.println(Arrays.toString(varyingClassDetails.toArray()));
+            }
         } catch (Exception e) {
             System.out.println("Please copy directly to .txt file format");
 
