@@ -1,0 +1,19 @@
+myTC Scheduler Patch 1.00 2018
+Hello! Thanks for using myTC Scheduler - A Better Way to Visualize your Schedule and Availabilities!
+
+This program was built as a final project for MSTU 4031 - Object Oriented Programming 
+at Teachers College, Columbia University.
+
+The first iteration, while achieving its intended purpose, contains much room for
+improvement. Reinserted user input in the text areas layers the visualizations on top of the previous execution. 
+Thus, version 1.00 works best re-running the program per each visualization. 
+Patch Notes is currently user-editable (try it out yourself). 
+TBA and missing class information are handled but is not perfect and fails to work in some instances. 
+
+Future Updates:
+Aside from these bugs, features we plan on adding include dynamic visualization of availabilities for every combination 
+of individuals thereby seeing the cross-sectional availabilities within members of the group. 
+
+Enjoy!
+Juan Djuwadi (jad2296@tc.columbia.edu)
+Peiyu Wang (pw2481@tc.columbia.edu)
