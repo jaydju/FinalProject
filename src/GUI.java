@@ -9,51 +9,151 @@ import java.util.Arrays;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 
 public class GUI {
     private JFrame f;
     private JPanel p;
+    private JFrame fSchedule;
+    private JFrame fPatchNotes;
+    private JFrame fAvailVis;
+    private JPanel pSchedule;
+    private JPanel pAvailVis;
     private JButton b1;
-    private JLabel lab;
-    private JTextArea tf;
+    private JTextArea tf, tf2, tf3;
     private JScrollPane sp;
 
     private static final String FileName = "schedule.txt";
-    private static final String FileName2 = "schedule2.txt";
+    private static final String FileName2 = "schedule2.txt"; //Availability
+    private static final String FileName3 = "schedule3.txt"; //Availability
 
     public void show()
     {
-        try{
-        f = new JFrame("A Better Way to Visualize your Schedule and Availabilities");
+        //Study these GUI More Later
+        f = new JFrame("A Better Way to Visualize your Schedule and Availabilities (Patch Ver 1.0)");
         f.setSize(600, 420);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Lets the USER close the JFrame
 
 
         p = new JPanel();
-//        p.setPreferredSize(new Dimension(600, 400));
 
-        b1 = new JButton("Run");
+
         JButton b4 = new JButton("Schedule Visualizer");
         JButton b2 = new JButton("Patch Notes");
         JButton b3 = new JButton("Availability Visualizer");
 
-        p.add(b1); //This code adds the buttons to the JPanel().
+        b4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(false);
+                fSchedule.setVisible(true);
+            }
+        });
+
+        b3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                showAvailabilityVisualizer();
+            }
+        });
+
+        b2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(false);
+                fPatchNotes.setVisible(true);
+            }
+        });
+
+
+
+        //This code adds the buttons to the JPanel().
+        p.add(b4);
         p.add(b2);
+        p.add(b3);
         f.add(p); //The JFrame adds te JPanel which contains the UI components
         f.add(p, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
-        f.add(new JLabel(new ImageIcon("04.png"))); //Changes the Icon of the Program
+        f.add(new JLabel(new ImageIcon("041.png"))); //Changes the Icon of the Program
         try {
             f.setIconImage(ImageIO.read(new File("TCColumbiaLogo.png")));
         } catch(Exception z){
             System.out.println("Trouble Reading Image File");
         }
 
+        //Patch Notes Section
+        fPatchNotes = new JFrame();
+        fPatchNotes.setSize(900, 420);
+        fPatchNotes.setResizable(false);
+        fPatchNotes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel pPatchNotes = new JPanel();
+        JTextArea patchNotes = new JTextArea();
+        JScrollPane scrollPane = new JScrollPane(patchNotes);
+        try{
+            FileReader reader = new FileReader("patchNotes.txt");
+            BufferedReader br = new BufferedReader(reader);
+            patchNotes.read(br, null);
+            br.close();
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        try{
+            FileWriter writer = new FileWriter("patchNotes.txt");
+            BufferedWriter bw = new BufferedWriter(writer);
+            patchNotes.write(bw);
+            bw.close();
+        } catch(Exception e2){{
+            System.out.println(e2);}
+        }
+//        try{
+//            patchNotes.read(new InputStreamReader(getClass().getResourceAsStream("scheduleTCJay.txt")), null);
+//        } catch (IOException e){
+//            e.printStackTrace();
+//        }
+        patchNotes.setPreferredSize(new Dimension(800, 350));
+        JButton bRet1 = new JButton("Return");
+        pPatchNotes.add(bRet1);
+        pPatchNotes.add(scrollPane);
+        fPatchNotes.add(pPatchNotes);
+        bRet1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(true);
+                fPatchNotes.setVisible(false);
+            }
+        });
+
+
+
+
+
+        //Scheduler Section
+        fSchedule = new JFrame();
+        fSchedule.setSize(600, 420);
+        fSchedule.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Lets the USER close the JFrame
+
+        pSchedule = new JPanel();
+
         tf = new JTextArea();
         tf.setPreferredSize(new Dimension(300, 200));
 
-        p.add(tf);
+        pSchedule.add(tf);
+        b1 = new JButton("Run");
+        pSchedule.add(b1);
+        JButton bRet = new JButton("Return");
+        pSchedule.add(bRet);
+        fSchedule.add(pSchedule); //The JFrame adds te JPanel which contains the UI components
+        fSchedule.add(pSchedule, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
+        fSchedule.add(new JLabel(new ImageIcon("04.png"))); //Changes the Icon of the Program
+        try {
+            f.setIconImage(ImageIO.read(new File("TCColumbiaLogo.png")));
+        } catch(Exception z){
+            System.out.println("Trouble Reading Image File");
+        }
 
-//        sp = new JScrollPane(tf); //JTextArea is placed in a JScrollPane
+       //        sp = new JScrollPane(tf); //JTextArea is placed in a JScrollPane
 
         b1.addActionListener(new ActionListener() {
             @Override
@@ -71,13 +171,86 @@ public class GUI {
                 }
             }
         });
+
+        bRet.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                f.setVisible(true);
+                fSchedule.setVisible(false);
+            }
+        });
         f.setVisible(true); //We set visible at the very END when all the components are drawn in place.
         f.setResizable(false);
 
-    } catch (Exception e){
-            System.out.println("Unsupported text");
-        }
     }
+
+
+    private void showAvailabilityVisualizer()
+    {
+        f.setVisible(false);
+
+        if(fAvailVis == null)
+        {
+            fAvailVis =  new JFrame();
+            pAvailVis = new JPanel();
+            fAvailVis.setSize(800, 450);
+            fAvailVis.setResizable(false);
+            fAvailVis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Lets the USER close the JFrame
+
+            tf2 = new JTextArea();
+            tf2.setPreferredSize(new Dimension(300, 200));
+            pAvailVis.add(tf2);
+
+            tf3 = new JTextArea();
+            tf3.setPreferredSize(new Dimension(300, 200));
+            pAvailVis.add(tf3);
+
+            b1 = new JButton("Run");
+            pAvailVis.add(b1);
+
+            JButton bRet = new JButton("Return");
+            pAvailVis.add(bRet);
+
+            fAvailVis.add(pAvailVis); //The JFrame adds te JPanel which contains the UI components
+            fAvailVis.add(pAvailVis, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
+            fAvailVis.add(new JLabel(new ImageIcon("03 (1).png")));
+
+            b1.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+
+                    try {
+                        FileWriter fw = new FileWriter(FileName2);
+                        fw.write(tf2.getText());
+                        fw.close();
+
+                        FileWriter fw2 = new FileWriter(FileName3);
+                        fw2.write(tf3.getText());
+                        fw2.close();
+
+                        parseInfoAvailability();
+                    }
+                    catch(Exception ex)
+                    {
+                    }
+                }
+            });
+
+            bRet.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    f.setVisible(true);
+                    fAvailVis.setVisible(false);
+                }
+            });
+
+        }
+        else
+        {
+        }
+        fAvailVis.setVisible(true);
+    }
+
 
     private void parseInfo()
     {
@@ -106,6 +279,8 @@ public class GUI {
             ArrayList<String> classDetailFirst = new ArrayList<>();
             ArrayList<String> classDetailSecond = new ArrayList<>();
             Classes.fincClassDetails(s, classDetailFirst, classDetailSecond);
+            System.out.println(Arrays.toString(classDetailFirst.toArray()));
+            System.out.println(Arrays.toString(classDetailSecond.toArray()));
 
 
 //                while (s.hasNextLine()) {
@@ -124,6 +299,10 @@ public class GUI {
             // If TBA is in the First Line, it is removed from the Array. The Second Line index of that same class is also removed.
             ArrayList<String> incompleteClass = new ArrayList<>(); //The incompleteClass Array List saves the incomplete line information to be printed out to the user later.
             Classes.removeInstanceTBA(incompleteClass, classDetailFirst, classDetailSecond, allClassNames);
+            System.out.println("After removing TBA: ");
+            System.out.println(Arrays.toString(classDetailFirst.toArray()));
+            System.out.println(Arrays.toString(classDetailSecond.toArray()));
+            System.out.println(Arrays.toString(incompleteClass.toArray()));
 
 //                for (int j = 0; j < classDetailFirst.size(); j++) {
 //                    String thisClassDetail = classDetailFirst.get(j);
@@ -139,6 +318,9 @@ public class GUI {
             //Handling Instances of Seminars if the Time for Both Seminars is the Same Replace
             ArrayList<String> varyingClassDetails = new ArrayList<>();
             Classes.seminarAndLaboratoryHandler(varyingClassDetails, classDetailFirst, classDetailSecond, allClassNames);
+            System.out.println("After handling varying class sizes: ");
+            System.out.println(Arrays.toString(classDetailFirst.toArray()));
+            System.out.println(Arrays.toString(classDetailSecond.toArray()));
 //                for (int j = 0; j < classDetailFirst.size(); j++) {
 //                    ArrayList<String> seminarTokens1 = new ArrayList<>();
 //                    ArrayList<String> seminarTokens2 = new ArrayList<>();
@@ -202,7 +384,7 @@ public class GUI {
                 for (int j = 0; j < classDetailTokens1.size(); j++) {
                     String token = classDetailTokens1.get(j);
                     //We check if the Tokens equals Lecture/Seminar/Laboratory etc; we know the Token After This is the Start of the Prof Name
-                    if (token.equals("Lecture") || token.equals("Seminar") || token.equals("Laboratory")) {
+                    if (token.equals("Lecture") || token.equals("Seminar") || token.equals("Laboratory") || token.equals("Course")) {
                         String professorName = "";
                         for (int h = j + 1; h < classDetailTokens1.size(); h++) {
                             if (classDetailTokens1.get(h).equals(("(P)E-mail")) || classDetailTokens1.get(h).equals("E-mail")) {
@@ -258,7 +440,7 @@ public class GUI {
                     for (int j = 0; j < classDetailTokens2.size(); j++) {
                         String token = classDetailTokens2.get(j);
                         //We check if the Tokens equals Lecture/Seminar/Laboratory etc; we know the Token After This is the Start of the Prof Name
-                        if (token.equals("Lecture") || token.equals("Seminar") || token.equals("Laboratory")) {
+                        if (token.equals("Lecture") || token.equals("Seminar") || token.equals("Laboratory") || token.equals("Course")) {
                             String professorName = "";
                             for (int h = j + 1; h < classDetailTokens2.size(); h++) {
                                 if (classDetailTokens2.get(h).equals(("(P)E-mail")) || classDetailTokens2.get(h).equals("E-mail")) {
@@ -278,6 +460,9 @@ public class GUI {
 
 
             //        //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
+            Rectangle fill = new Rectangle(10, 10, 1270, 840);
+            fill.setColor(Color.WHITE);
+            fill.draw();
             Line horizontalTop = new Line(10, 10, 1280, 10);
             horizontalTop.draw();
             Line subHeaderTop = new Line(10, 60, 1280, 60);
@@ -369,6 +554,8 @@ public class GUI {
                         boxX = 560;
                     } else if (firstClassDay.equals("R")) {
                         boxX = 800;
+                    } else if (firstClassDay.equals("F")) {
+                        boxX = 1040;
                     } else {
                         boxX = 0;
                         System.out.println("Can't find class day");
@@ -514,14 +701,17 @@ public class GUI {
     }
 
     public void parseInfoAvailability() {
+        Rectangle fill = new Rectangle(10, 10, 1270, 840);
+        fill.setColor(Color.WHITE);
+        fill.draw();
         Rectangle available = new Rectangle(10, 90, 1270, 760);
         available.setColor(Color.GREEN);
         available.fill();
         String studentNames = "";
         try { //This try catches non .txt file formats
             ArrayList<String> fileList = new ArrayList<>();
-            fileList.add("scheduleTCJay.txt");
-            fileList.add("scheduleTCPeiyu.txt");
+            fileList.add("schedule2.txt");
+            fileList.add("schedule3.txt");
             //We Initialize the File Name, remember to ask for user input and print line by line to a text file.
             for (int o = 0; o < fileList.size(); o++) {
                 String fileName = fileList.get(o);
@@ -822,19 +1012,19 @@ public class GUI {
 
 
                 }
-                //        //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
+                //     rticalLeft.draw();
+                //                Line horizontalBot = new Line(10, 810, 1280, 810);
+                //                horizontalBot.draw();
+                //                Line verticalRight = new Line(1280, 850, 1280, 10);
+                //                verticalRight.draw();
+                //                Line verticalTime = new Line(80, 10, 80, 850);
+                //                verticalTime.draw();   //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
                 Line horizontalTop = new Line(10, 10, 1280, 10);
                 horizontalTop.draw();
                 Line subHeaderTop = new Line(10, 60, 1280, 60);
                 subHeaderTop.draw();
                 Line verticalLeft = new Line(10, 10, 10, 850);
                 verticalLeft.draw();
-                Line horizontalBot = new Line(10, 810, 1280, 810);
-                horizontalBot.draw();
-                Line verticalRight = new Line(1280, 850, 1280, 10);
-                verticalRight.draw();
-                Line verticalTime = new Line(80, 10, 80, 850);
-                verticalTime.draw();
 
                 int hour = 9;
                 int minute = 0;

@@ -165,7 +165,7 @@ public class Classes {
         public static void removeInstanceTBA(ArrayList<String> incompleteClasses, ArrayList<String> firstLine, ArrayList<String> secondLine, ArrayList<String> classNames){
             for (int j = 0; j < firstLine.size(); j++) {
                 String thisClassDetail = firstLine.get(j);
-                if (thisClassDetail.toLowerCase().contains("TBA".toLowerCase())) {
+                if (thisClassDetail.contains("TBA") || thisClassDetail.contains("TBA ")) {
                     incompleteClasses.add(classNames.get(j) + firstLine.get(j));
                     firstLine.remove(j);
                     secondLine.remove(j);

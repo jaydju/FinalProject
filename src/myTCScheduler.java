@@ -12,9 +12,10 @@ public class myTCScheduler {
 
 
     public static void main(String[] args) throws java.io.FileNotFoundException {
-        GUI gui = new GUI();
-        gui.show();
-//        gui.parseInfoAvailability();
+        try {
+            GUI gui = new GUI();
+            gui.show();
+        } catch(Exception e){}
 
  }
 }
