@@ -9,8 +9,6 @@ import java.util.Arrays;
 import java.util.Scanner;
 import javax.imageio.ImageIO;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 
@@ -24,27 +22,25 @@ public class GUI {
     private JPanel pAvailVis;
     private JButton b1;
     private JTextArea tf, tf2, tf3;
-    private JScrollPane sp;
 
-    private static final String FileName = "schedule.txt";
-    private static final String FileName2 = "schedule2.txt"; //Availability
-    private static final String FileName3 = "schedule3.txt"; //Availability
+    private static final String FileName = "schedule.txt"; //Schedule Visualizer Document
+    private static final String FileName2 = "schedule2.txt"; //Availability Schedule Document
+    private static final String FileName3 = "schedule3.txt"; //Availability Schedule Document
 
     public void show()
     {
-        //Study these GUI More Later
+        //Main Frame
         f = new JFrame("A Better Way to Visualize your Schedule and Availabilities (Patch Ver 1.0)");
-        f.setSize(600, 420);
+        f.setSize(600, 420); //Setting the Frame Size
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Lets the USER close the JFrame
 
-
+        //Main Panel
         p = new JPanel();
-
-
         JButton b4 = new JButton("Schedule Visualizer");
         JButton b2 = new JButton("Patch Notes");
         JButton b3 = new JButton("Availability Visualizer");
 
+        //Button Listeners ofr Main Frame/Panel
         b4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -68,29 +64,33 @@ public class GUI {
             }
         });
 
-
-
-        //This code adds the buttons to the JPanel().
+        //Add Buttons and Components to the Main Frame
         p.add(b4);
         p.add(b2);
         p.add(b3);
         f.add(p); //The JFrame adds te JPanel which contains the UI components
         f.add(p, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
         f.add(new JLabel(new ImageIcon("041.png"))); //Changes the Icon of the Program
+
+        //Sets the Icon the Application to an Image
         try {
             f.setIconImage(ImageIO.read(new File("TCColumbiaLogo.png")));
         } catch(Exception z){
             System.out.println("Trouble Reading Image File");
         }
 
-        //Patch Notes Section
+        //Patch Notes Frame
         fPatchNotes = new JFrame();
         fPatchNotes.setSize(900, 420);
         fPatchNotes.setResizable(false);
         fPatchNotes.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //Patch Notes Panel/Text Area
         JPanel pPatchNotes = new JPanel();
         JTextArea patchNotes = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(patchNotes);
+
+        //Reading from File to Display on Panel
         try{
             FileReader reader = new FileReader("patchNotes.txt");
             BufferedReader br = new BufferedReader(reader);
@@ -107,11 +107,8 @@ public class GUI {
         } catch(Exception e2){{
             System.out.println(e2);}
         }
-//        try{
-//            patchNotes.read(new InputStreamReader(getClass().getResourceAsStream("scheduleTCJay.txt")), null);
-//        } catch (IOException e){
-//            e.printStackTrace();
-//        }
+
+        //Adding Components of JPanel
         patchNotes.setPreferredSize(new Dimension(800, 350));
         JButton bRet1 = new JButton("Return");
         pPatchNotes.add(bRet1);
@@ -125,20 +122,17 @@ public class GUI {
             }
         });
 
-
-
-
-
-        //Scheduler Section
+        //Scheduler Frame
         fSchedule = new JFrame();
         fSchedule.setSize(600, 420);
         fSchedule.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Lets the USER close the JFrame
 
+        //Scheduler Panel/Text Area
         pSchedule = new JPanel();
-
         tf = new JTextArea();
         tf.setPreferredSize(new Dimension(300, 200));
 
+        //Adding Components to the Panel and Frame
         pSchedule.add(tf);
         b1 = new JButton("Run");
         pSchedule.add(b1);
@@ -147,14 +141,15 @@ public class GUI {
         fSchedule.add(pSchedule); //The JFrame adds te JPanel which contains the UI components
         fSchedule.add(pSchedule, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
         fSchedule.add(new JLabel(new ImageIcon("04.png"))); //Changes the Icon of the Program
+
+        //Reading Image of the Scheduler Frame
         try {
             f.setIconImage(ImageIO.read(new File("TCColumbiaLogo.png")));
         } catch(Exception z){
             System.out.println("Trouble Reading Image File");
         }
 
-       //        sp = new JScrollPane(tf); //JTextArea is placed in a JScrollPane
-
+        //Action Listeners for the Scheduler Frame
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -184,27 +179,31 @@ public class GUI {
 
     }
 
-
+    //Availability Frame is Organized as a Method
     private void showAvailabilityVisualizer()
     {
+        //We do not Display the Main Frame when this Method is Called
         f.setVisible(false);
-
         if(fAvailVis == null)
         {
+            //Creating the Frame and Panel
             fAvailVis =  new JFrame();
             pAvailVis = new JPanel();
             fAvailVis.setSize(800, 450);
             fAvailVis.setResizable(false);
             fAvailVis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Lets the USER close the JFrame
 
+            //Text Area 2
             tf2 = new JTextArea();
             tf2.setPreferredSize(new Dimension(300, 200));
             pAvailVis.add(tf2);
 
+            //Text Area 2
             tf3 = new JTextArea();
             tf3.setPreferredSize(new Dimension(300, 200));
             pAvailVis.add(tf3);
 
+            //Adding Buttons and Components to the Frame
             b1 = new JButton("Run");
             pAvailVis.add(b1);
 
@@ -215,6 +214,7 @@ public class GUI {
             fAvailVis.add(pAvailVis, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
             fAvailVis.add(new JLabel(new ImageIcon("03 (1).png")));
 
+            //Action Listeners for the Availability Frame
             b1.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -251,7 +251,7 @@ public class GUI {
         fAvailVis.setVisible(true);
     }
 
-
+    //Method for Scheduler Section
     private void parseInfo()
     {
         try { //This try catches non .txt file formats
@@ -283,36 +283,17 @@ public class GUI {
             System.out.println(Arrays.toString(classDetailSecond.toArray()));
 
 
-//                while (s.hasNextLine()) {
-//                    String line = s.next();
-//                    if (line.equals("Type")) {
-//                        s.nextLine();
-//                        String firstDetails = s.nextLine();
-//                        classDetailFirst.add(firstDetails);
-//                        String secondDetails = s.nextLine();
-//                        classDetailSecond.add(secondDetails);
-//                    }
-//                }
-
 
             //Checking if Class Details is Complete (Conditioned On Only First Line Containing TBA
             // If TBA is in the First Line, it is removed from the Array. The Second Line index of that same class is also removed.
             ArrayList<String> incompleteClass = new ArrayList<>(); //The incompleteClass Array List saves the incomplete line information to be printed out to the user later.
             Classes.removeInstanceTBA(incompleteClass, classDetailFirst, classDetailSecond, allClassNames);
+            //Consider calling this Static Method Twice - Doesn't Detect the Second Instance of TBA for Some Reason.
+            //Classes.removeInstanceTBA(incompleteClass, classDetailFirst, classDetailSecond, allClassNames);
             System.out.println("After removing TBA: ");
             System.out.println(Arrays.toString(classDetailFirst.toArray()));
             System.out.println(Arrays.toString(classDetailSecond.toArray()));
             System.out.println(Arrays.toString(incompleteClass.toArray()));
-
-//                for (int j = 0; j < classDetailFirst.size(); j++) {
-//                    String thisClassDetail = classDetailFirst.get(j);
-//                    if (thisClassDetail.toLowerCase().contains("TBA".toLowerCase())) {
-//                        incompleteClass.add(allClassNames.get(j) + classDetailFirst.get(j));
-//                        classDetailFirst.remove(j);
-//                        classDetailSecond.remove(j);
-//                        allClassNames.remove(j);
-//                    }
-//                }
 
 
             //Handling Instances of Seminars if the Time for Both Seminars is the Same Replace
@@ -321,30 +302,6 @@ public class GUI {
             System.out.println("After handling varying class sizes: ");
             System.out.println(Arrays.toString(classDetailFirst.toArray()));
             System.out.println(Arrays.toString(classDetailSecond.toArray()));
-//                for (int j = 0; j < classDetailFirst.size(); j++) {
-//                    ArrayList<String> seminarTokens1 = new ArrayList<>();
-//                    ArrayList<String> seminarTokens2 = new ArrayList<>();
-//                    String thisClassDetail = classDetailFirst.get(j);
-//                    if (thisClassDetail.toLowerCase().contains("Seminar".toLowerCase()) || thisClassDetail.toLowerCase().contains("Laboratory".toLowerCase())) {
-//                        String[] words = thisClassDetail.split("\\s+");
-//                        for (String word : words) {
-//                            seminarTokens1.add(word);
-//                        }
-//                        String[] words2 = classDetailSecond.get(j).split("\\s+");
-//                        for (String word : words2) {
-//                            seminarTokens2.add(word);
-//                        }
-//                        //********** NEED TO RECODE THIS TO MORE GENERAL/ROBUST CASE. IF THE DAYS ARE THE SAME AND THE TIME OVERLAPS, THEN REMOVE IT.
-//                        String day1 = seminarTokens1.get(6);
-//                        String day2 = seminarTokens2.get(6);
-//                        String time1 = seminarTokens1.get(1) + seminarTokens1.get(2) + seminarTokens1.get(3) + seminarTokens1.get(4) + seminarTokens1.get(5);
-//                        String time2 = seminarTokens2.get(1) + seminarTokens2.get(2) + seminarTokens2.get(3) + seminarTokens2.get(4) + seminarTokens2.get(5);
-//                        if (time1.equals(time2) || day1.equals(day2)) {
-//                            varyingClassDetails.add(allClassNames.get(j) + classDetailSecond.get(j));
-//                            classDetailSecond.set(j, " ");
-//                        }
-//                    }
-//                }
 
             //We iterate through the Array Containing the Lines of Class Details for the FIRST ARRAY
             for (int i = 0; i < classDetailFirst.size(); i++) {
@@ -459,7 +416,7 @@ public class GUI {
             }
 
 
-            //        //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
+            //Creating Line Segments Here
             Rectangle fill = new Rectangle(10, 10, 1270, 840);
             fill.setColor(Color.WHITE);
             fill.draw();
@@ -649,12 +606,7 @@ public class GUI {
 
                     boxHeight = boxHeight - boxY;
 
-                    //Need to adjust the positive Y here.
-                    //THe length of each vertical segment is 840 long we need to parse by time between 9am - 920pm.
-
-//                Rectangle classBox = new Rectangle(boxX, boxY, 240, boxHeight);
-//                double indivBoxHeight = boxHeight / 3f;
-
+                    //The Length of each Vertical Segment is 840, Distributed Between 9am - 920pm.
                     Rectangle firstBox = new Rectangle(boxX, boxY, 240, boxHeight / 3f);
                     firstBox.setColor(new Color(17, 30, 108));
                     firstBox.fill();
@@ -681,7 +633,6 @@ public class GUI {
 
                 }
 
-
             }
             //Printing out Incomplete Class Details
             Text missingMessage = new Text(1300, 40, "Missing Information: Could't Process Following");
@@ -700,11 +651,9 @@ public class GUI {
         }
     }
 
+    //Method for Availability Section
     public void parseInfoAvailability() {
-        Rectangle fill = new Rectangle(10, 10, 1270, 840);
-        fill.setColor(Color.WHITE);
-        fill.draw();
-        Rectangle available = new Rectangle(10, 90, 1270, 760);
+        Rectangle available = new Rectangle(80, 90, 1200, 760);
         available.setColor(Color.GREEN);
         available.fill();
         String studentNames = "";
@@ -978,47 +927,14 @@ public class GUI {
 
                         boxHeight = boxHeight - boxY;
 
-                        //Need to adjust the positive Y here.
-                        //THe length of each vertical segment is 840 long we need to parse by time between 9am - 920pm.
-
-
-
                         Rectangle firstBox = new Rectangle(boxX, boxY, 240, boxHeight);
                         firstBox.setColor(Color.WHITE);
                         firstBox.fill();
-
-//                        Rectangle secondBox = new Rectangle(boxX, boxY + (boxHeight / 3f), 240, boxHeight / 3f);
-//                        secondBox.setColor(new Color(255, 221, 175));
-//                        secondBox.fill();
-//                        Rectangle thirdBox = new Rectangle(boxX, boxY + (2 * boxHeight / 3f), 240, boxHeight / 3f);
-//                        thirdBox.setColor(new Color(199, 234, 70));
-//                        thirdBox.fill();
-//
-//                        Text className = new Text(boxX, boxY, c1.getClassName() + ": " + c1.getClassProf());
-//                        className.setColor(new Color(255, 255, 255));
-//                        className.draw();
-//                        className.translate(20, 8);
-//                        className.grow(5, 5);
-//                        Text classLoc = new Text(boxX, boxY + boxHeight / 3f, c1.getClassLoc());
-//                        classLoc.draw();
-//                        classLoc.translate(20, 8);
-//                        classLoc.grow(5, 5);
-//                        Text classTim = new Text(boxX, boxY + 2 * boxHeight / 3f, c1.getClassTime());
-//                        classTim.draw();
-//                        classTim.translate(20, 8);
-//                        classTim.grow(5, 5);
 
                     }
 
 
                 }
-                //     rticalLeft.draw();
-                //                Line horizontalBot = new Line(10, 810, 1280, 810);
-                //                horizontalBot.draw();
-                //                Line verticalRight = new Line(1280, 850, 1280, 10);
-                //                verticalRight.draw();
-                //                Line verticalTime = new Line(80, 10, 80, 850);
-                //                verticalTime.draw();   //         CREATING LINE SEGMENTS ACTUAL DRAWING HERE
                 Line horizontalTop = new Line(10, 10, 1280, 10);
                 horizontalTop.draw();
                 Line subHeaderTop = new Line(10, 60, 1280, 60);
@@ -1072,6 +988,7 @@ public class GUI {
                         indexOfDay++;
                     }
                 }
+
                 //Printing out Incomplete Class Details
                 Text missingMessage = new Text(1300, 40, "Missing Information: Could't Process Following");
 

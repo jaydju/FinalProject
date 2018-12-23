@@ -10,7 +10,6 @@ import java.util.Arrays;
 //The program breaks down if you paste it from TC to a word doc first then to a text file. Word Doc processes it with some binary formatting.
 public class myTCScheduler {
 
-
     public static void main(String[] args) throws java.io.FileNotFoundException {
         try {
             GUI gui = new GUI();
