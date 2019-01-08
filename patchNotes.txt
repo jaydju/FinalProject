@@ -15,5 +15,5 @@ Aside from these bugs, features we plan on adding include dynamic visualization 
 of individuals thereby seeing the cross-sectional availabilities within members of the group. 
 
 Enjoy!
-Juan Djuwadi (jad2296@tc.columbia.edu)
+Juan (Jay) Djuwadi (jad2296@tc.columbia.edu)
 Peiyu Wang (pw2481@tc.columbia.edu)

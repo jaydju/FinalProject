@@ -36,12 +36,12 @@ public class GUI {
 
         //Main Panel
         p = new JPanel();
-        JButton b4 = new JButton("Schedule Visualizer");
+        JButton sV = new JButton("Schedule Visualizer");
         JButton b2 = new JButton("Patch Notes");
         JButton b3 = new JButton("Availability Visualizer");
 
         //Button Listeners ofr Main Frame/Panel
-        b4.addActionListener(new ActionListener() {
+        sV.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 f.setVisible(false);
@@ -65,10 +65,10 @@ public class GUI {
         });
 
         //Add Buttons and Components to the Main Frame
-        p.add(b4);
+        p.add(sV);
         p.add(b2);
         p.add(b3);
-        f.add(p); //The JFrame adds te JPanel which contains the UI components
+        f.add(p); //The JFrame adds the JPanel which contains the UI components
         f.add(p, BorderLayout.SOUTH); //This shows the panel at the bottom of the frame
         f.add(new JLabel(new ImageIcon("041.png"))); //Changes the Icon of the Program
 
@@ -89,6 +89,8 @@ public class GUI {
         JPanel pPatchNotes = new JPanel();
         JTextArea patchNotes = new JTextArea();
         JScrollPane scrollPane = new JScrollPane(patchNotes);
+        //Trying to Add Scrollbar - Doesn't display atm
+        fPatchNotes.getContentPane().add(scrollPane);
 
         //Reading from File to Display on Panel
         try{
@@ -153,6 +155,11 @@ public class GUI {
         b1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                //Code Test to White Out Previous Schedule
+//                Rectangle white = new Rectangle(80, 90, 1200, 760);
+//                white.setColor(Color.WHITE);
+//                white.fill();
+//                white.draw();
                 String text = tf.getText();
                 try {
                     FileWriter fw = new FileWriter(FileName);
@@ -164,6 +171,7 @@ public class GUI {
                 {
 
                 }
+
             }
         });
 
@@ -232,6 +240,7 @@ public class GUI {
                     }
                     catch(Exception ex)
                     {
+
                     }
                 }
             });
