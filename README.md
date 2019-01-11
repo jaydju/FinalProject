@@ -1,7 +1,17 @@
 # myTC Scheduler
-Problem: The current view of the schedule on myTCportal is not user-friendly and difficult to visualize the relationship between your classes and availabilities throughout the week. 
+**Problem**: The current view of the schedule on myTCportal is not user-friendly and difficult to visualize the relationship between your classes and availabilities throughout the week. 
 
-Project Descritpion: The idea is to write a program that can create a more graphical view of the schedule for students at TC achieved by simply copying and pasting their schedule from the myTCPortal website to our program. 
+**Project Descritpion**: The idea is to write a program that can create a more graphical view of the schedule for students at TC achieved by simply copying and pasting their schedule from the myTCPortal website to our program. 
+
+![](readMeImages/portal.png)
+
+From this page, we have the user 'select-all' and copy and paste the information to the text field of our program. The unformatted text that the text field should read looks as so:
+
+![](readMeImages/scheduletext.png)
+
+The program then parses through the text and visualizes the schedule into one similar to the image below: 
+
+![](readMeImages/schedulevisualize.png)
 
 An alternative approach is to create multiple questions which prompts the user for input regarding their class schedule for a single week; however, this is cumbersome for the user and does not automate the process as much as we would like. Having the user simply copy and paste the schedule, while more challenging, gives a far better user experience. The most relevant information a user needs is the class name,class code, class time, class location, and the professor of that class. We aim to provide all this information within every instance of this class (every Java pun in this paragraph is unintended).
 A better approach for further improved user experience could be utilizing a web-scraper to collect relevant data based on the user provided link:
