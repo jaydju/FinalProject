@@ -1,0 +1,88 @@
+Teachers College WWW Information System
+Personal Information	Tab Corner Right	Student	Tab Corner Right
+Transparent Image
+Search 
+ 
+RETURN TO MENU | SITE MAP | HELP | EXIT
+Student Detail Schedule:
+ 	
+T00025176 Peiyu Wang
+Spring Term 2019
+12/17/18 05:14 pm
+Transparent Image
+The classroom is subject to change. Please check the online class schedule on a daily basis for updated assignments particularly during the first two weeks of classes.
+
+Total Credit Hours: 15.000 
+
+Video Art - A&HA 4073 - 001
+Associated Term:	Spring Term 2019
+CRN:	52064
+Status:	**Web Registered** on 12/17/18
+Assigned Instructor:	Dahye KimE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	4:10 pm - 6:40 pm	F	Thorndike Hall 51C	01/23/19 - 05/14/19	Studio Course	Dahye Kim (P)E-mail
+
+The History of Communication - MSTU 4016 - 001
+Associated Term:	Spring Term 2019
+CRN:	51941
+Status:	**Web Registered** on 12/03/18
+Assigned Instructor:	Tucker B. HardingE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Distance Learning
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	TBA	 	TBA	01/23/19 - 05/14/19	Lecture	Tucker Brown Harding (P)E-mail
+
+Sculpture as Making - A&HA 4093 - 001
+Associated Term:	Spring Term 2019
+CRN:	50436
+Status:	**Web Registered** on 12/11/18
+Assigned Instructor:	Sohee KooE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	10:00 am - 12:30 pm	F	Macy Hall 55	01/23/19 - 05/14/19	Studio Course	Sohee Koo (P)E-mail
+
+The History of Communication - MSTU 4016 - 001
+Associated Term:	Spring Term 2019
+CRN:	51941
+Status:	**Web Registered** on 12/03/18
+Assigned Instructor:	Tucker B. HardingE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Distance Learning
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	TBA	 	TBA	01/23/19 - 05/14/19	Lecture	Tucker Brown Harding (P)E-mail
+
+Rsrch/Prgrmng Serious Games - MSTU 5015 - 001
+Associated Term:	Spring Term 2019
+CRN:	51105
+Status:	**Web Registered** on 12/11/18
+Assigned Instructor:	Joey LeeE-mail
+Grade Mode:	Letter grade
+Credits:	3.000
+Level:	Graduate
+Campus:	Teachers College
+Scheduled Meeting Times
+Type	Time	Days	Where	Date Range	Schedule Type	Instructors
+Class	7:20 pm - 9:00 pm	M	Grace Dodge Hall 285	01/23/19 - 05/14/19	Lecture	Joey Lee (P)E-mail
+
+Return to Previous
+Transparent Image
+[ Select Term | Add/Drop Classes | Change Class Options | View Fee Assessment | Look up Classes to Add ]
+
+RELEASE: 8.7.1
+
+© 2018 Ellucian Company L.P. and its affiliates.
