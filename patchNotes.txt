@@ -6,7 +6,7 @@ at Teachers College, Columbia University.
 
 The first iteration, while achieving its intended purpose, contains much room for
 improvement. Reinserted user input in the text areas layers the visualizations on top of the previous execution. 
-Thus, version 1.00 works best re-running the program per each visualization. 
+Thus, version 1.00 works best re-running the program per each visualization (RESOLVED NOW).
 Patch Notes is currently user-editable (try it out yourself). 
 TBA and missing class information are handled but is not perfect and fails to work in some instances. 
 
