@@ -263,6 +263,9 @@ public class GUI {
     //Method for Scheduler Section
     private void parseInfo()
     {
+        Rectangle fill = new Rectangle(9, 9, 1280, 845);
+        fill.setColor(Color.WHITE);
+        fill.fill();
         try { //This try catches non .txt file formats
             //We Initialize the File Name, remember to ask for user input and print line by line to a text file.
             Scanner in = new Scanner(new FileReader(FileName));
@@ -426,9 +429,6 @@ public class GUI {
 
 
             //Creating Line Segments Here
-            Rectangle fill = new Rectangle(10, 10, 1270, 840);
-            fill.setColor(Color.WHITE);
-            fill.draw();
             Line horizontalTop = new Line(10, 10, 1280, 10);
             horizontalTop.draw();
             Line subHeaderTop = new Line(10, 60, 1280, 60);
@@ -662,6 +662,10 @@ public class GUI {
 
     //Method for Availability Section
     public void parseInfoAvailability() {
+        Rectangle fill = new Rectangle(9, 9, 1280, 845);
+        fill.setColor(Color.WHITE);
+        fill.fill();
+
         Rectangle available = new Rectangle(80, 90, 1200, 760);
         available.setColor(Color.GREEN);
         available.fill();
@@ -950,6 +954,8 @@ public class GUI {
                 subHeaderTop.draw();
                 Line verticalLeft = new Line(10, 10, 10, 850);
                 verticalLeft.draw();
+                Line verticalRight = new Line(1280, 10, 1280, 850);
+                verticalRight.draw();
 
                 int hour = 9;
                 int minute = 0;
